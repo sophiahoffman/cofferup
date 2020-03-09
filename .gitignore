@@ -1,0 +1,7 @@
+.DS_Store
+.vscode
+__pycache__/
+cofferupEnv/
+db.sqlite3
+connection.py
+
