@@ -1,6 +1,7 @@
 # from django.db import models
 from django.db.models import F
-from cofferupApp.models import Organization
+# from cofferupApp.models import Organization
+from .contributor import Contributor
 from django.db import models
 
 
