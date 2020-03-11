@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import F
-from cofferupApp.models import Contributor, Coffer
+from .contributor import Contributor
+from .coffer import Coffer
 
 class ContributorCoffer(models.Model):
 
