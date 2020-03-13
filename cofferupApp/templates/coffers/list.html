@@ -2,31 +2,15 @@
 
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset = 'utf-8'>
-        <title>Library</title>
-    </head>
-    <body>
     {% block content %}
-        <h1>Libraries</h1>
-        <a href = {% url 'libraryapp:library_form' %}">Add Library</a>
+        <h1>Join A Coffer</h1>
         <ol>
-        {% for library in all_libraries %}
+        {% for coffer in all_coffers %}
             <li>
-            <a href = {% url 'libraryapp:library' library.id %}>
-            {{library.title}}</a> 
-            ({{library.address}})
-                <ul>
-                {% for book in library.books %}
-                    <li>{{book.title}}</li>
-                {% endfor %}
-                </ul>
+            {% comment %} <a href = {% url 'cofferupApp:coffer' coffer.id %}> {% endcomment %}
+            {{coffer.name}}</a> 
+            ({{coffer.description}})
             </li>
         {% endfor %}
-        </ol>
+        </ol> 
     {% endblock %}
-    </body>
-</html>
-

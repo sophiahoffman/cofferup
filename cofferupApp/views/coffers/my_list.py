@@ -4,10 +4,10 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 
 @login_required
-def coffers_list(request):
+def my_coffers_list(request):
     if request.method == 'GET':
 
-        all_coffers = Coffer.objects.all()
+        my_coffers = ContributorCoffer.objects.all().filter(contributor_id = request.user.contributor.id)
         
 
 
@@ -17,9 +17,9 @@ def coffers_list(request):
         # if name is not None:
         # all_coffers = my_coffers.filter(user_id = request.auth.user.contributor.id)
 
-        template = 'coffers/list.html'
+        template = 'my_coffers/list.html'
         context = {
-            'all_coffers': all_coffers
+            'my_coffers': my_coffers
         }
 
         return render(request, template, context)
