@@ -1,0 +1,27 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <charset = 'utf-8'>
+        <title>Coff'erUp</title>
+    </head>
+    <body>
+    {% block content %}
+        <form action="{% url 'cofferupApp:myCoffers' %}" method='post'>
+        {% csrf_token %}
+            <fieldset>
+                <label for="title">Name: </label>
+                <input id="title" type="text" name="title">
+            </fieldset>
+            <fieldset>
+                <label for="address">Description: </label>
+                <input id="address" type="text" name="address">
+            </fieldset>
+            <button type="submit">Add It</button>
+        </form>
+    {% endblock %}
+    </body>
+</html>

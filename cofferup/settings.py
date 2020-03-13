@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders',
+    # 'corsheaders',
     'safedelete',
     'cofferupApp',
 ]
@@ -64,13 +64,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    'http://127.0.0.1:3000'
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000',
+#     'http://127.0.0.1:3000'
+# )
 
 ROOT_URLCONF = 'cofferup.urls'
 
@@ -91,6 +91,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cofferup.wsgi.application'
+
+LOGIN_REDIRECT_URL = ('/')
+REGISTER_REDIRECT_URL = ('/accounts/login')
 
 
 # Database
