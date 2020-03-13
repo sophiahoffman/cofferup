@@ -1,0 +1,18 @@
+{% extends 'shared/base.html' %}
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <charset = 'utf-8'>
+        <title>NMLS</title>
+    </head>
+    <body>
+    {% block content %}
+        <h1>{{library.title}}</h1>
+        <h2>{{library.address}}</h2>
+    {% endblock %}
+    </body>
+</html>

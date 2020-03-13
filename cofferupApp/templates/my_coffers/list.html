@@ -1,0 +1,18 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+    {% block content %}
+        <h1>My Coffers</h1>
+        {% comment %} <a href = {% url 'cofferupApp:coffer_form' %}">Add Library</a>
+        <ol>
+        {% for coffer in all_coffers %}
+            <li>
+            <a href = {% url 'cofferupApp:coffer' coffer.id %}>
+            {{coffer.title}}</a> 
+            ({{coffer.description}})
+            </li>
+        {% endfor %}
+        </ol> {% endcomment %}
+    {% endblock %}
+
