@@ -1,12 +1,11 @@
 import sqlite3
 from django.shortcuts import render
-from libraryapp.models import Library
+from cofferupApp.models import Coffer
 from django.contrib.auth.decorators import login_required
-from ..connection import Connection
 
 
 @login_required
-def library_form(request):
+def coffer_form(request):
     if request.method == "GET":
         template = 'libraries/form.html'
         context = {}
