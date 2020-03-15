@@ -1,24 +1,25 @@
-import sqlite3
-from cofferupApp.models import Coffer, ContributorCoffer
+from cofferupApp.models import Coffer, ContributorCoffer, ContributorCofferTransaction
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 
 @login_required
-def my_coffers_list(request):
+def my_settled_coffers_list(request):
     if request.method == 'GET':
 
-        all_my_coffers = ContributorCoffer.objects.filter(contributor_id = request.user.contributor.id)
-        all_my_coffers_list = []
-        for coffer in all_my_coffers:
-            all_my_coffers_list.append(coffer.coffer.id)
-
-        my_coffers = Coffer.objects.filter(id__in=all_my_coffers_list)
+        # my_coffers = ContributorCoffer.objects.all().filter(contributor_id = request.user.id)
+        # print("user id", request.user.id)
+        # my_coffers_id_list = map(lambda coffer: coffer.id, my_coffers)
         
+        # for contributorcoffer in my_coffers:
+        #    print("contributorcoffer.id", contributorcoffer.id)
 
 
-        template = 'my_coffers/list.html'
+        my_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id )
+        my_paid_coffers = ContributorCofferTransaction.objects.filter(contributor_coffer_id__in=my_coffers, is_contribution=False)
+
+        template = 'coffers/my_paid_list.html'
         context = {
-            'my_coffers': my_coffers
+            'my_coffers': my_paid_coffers
         }
 
         return render(request, template, context)
@@ -38,11 +39,10 @@ def my_coffers_list(request):
 
         # else:
             form_data = request.POST
-            print(request)
 
             # instantiate...
             new_contributor_coffer = ContributorCoffer(
-                coffer_id = request.pk,
+                coffer_id = pk,
                 contributor_id = request.user.contributor.id,
             )
 

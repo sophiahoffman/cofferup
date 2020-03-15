@@ -7,15 +7,14 @@ from django.contrib.auth.decorators import login_required
 def coffers_list(request):
     if request.method == 'GET':
 
-        all_coffers = Coffer.objects.all()
-        
+        # all_coffers = Coffer.objects.all()
+        all_unadded_coffers = ContributorCoffer.objects.filter(contributor_id =request.user.id) 
+        unique_unadded_coffers = []
+        for coffer in all_unadded_coffers:
+            unique_unadded_coffers.append(coffer.coffer.id)
+            print("im adding", coffer.coffer.id)
 
-
-        # name = request.GET.get('name', None)
-        # title = request.GET['title']
-
-        # if name is not None:
-        # all_coffers = my_coffers.filter(user_id = request.auth.user.contributor.id)
+        all_coffers = Coffer.objects.exclude(id__in=unique_unadded_coffers)
 
         template = 'coffers/list.html'
         context = {
@@ -24,19 +23,33 @@ def coffers_list(request):
 
         return render(request, template, context)
 
-    # elif request.method == 'POST':
-    #     form_data = request.POST
+    elif request.method == 'POST':
+        # not sure where the best place to put this delete is... yet
+        # # Check if this POST is for deleting a book
+        # if (
+        #     "actual_method" in form_data
+        #     and form_data["actual_method"] == "DELETE"
+        # ):
+                
+        #     coffer = Coffer.objects.get(coffer_id = coffer_id)
+        #     coffer.delete()
 
-    #     # instantiate...
-    #     new_coffer = Coffer(
-    #         name = form_data['name'],
-    #         description = form_data['description'],
-    #         date_end = form_data['end_date'],
-    #         admin_id = request.user.contributor.id,
-    #     )
+        #     return redirect(reverse('cofferupApp:coffers'))  
 
-    #     # and then save to the db
-    #     print(new_coffer.admin.user.username)
-    #     new_coffer.save()
+        # else:
+        form_data = request.POST
 
-    #     return redirect(reverse('cofferupApp:my_coffers'))
+        # instantiate...
+        new_coffer = Coffer(
+            name = form_data['name'],
+            description = form_data['description'],
+            date_start = form_data['date_start'],
+            date_end = form_data['date_end'],
+            admin_id = request.user.contributor.id,
+        )
+
+        # and then save to the db
+        print(new_coffer.admin.user.username)
+        new_coffer.save()
+
+        return redirect(reverse('cofferupApp:coffers'))
