@@ -6,7 +6,7 @@ from .contributor_coffer import ContributorCoffer
 class ContributorCofferTransaction(models.Model):
 
     contributor_coffer=models.ForeignKey(ContributorCoffer, on_delete=models.CASCADE)
-    is_contribution=models.BooleanField()
+    is_contribution=models.BooleanField(default=1)
     description=models.CharField(max_length=255)
     amount=models.IntegerField()
     transaction_date=models.DateTimeField(auto_now=False, auto_now_add=True)
