@@ -45,11 +45,10 @@ def coffers_list(request):
             description = form_data['description'],
             date_start = form_data['date_start'],
             date_end = form_data['date_end'],
-            admin_id = request.user.contributor.id,
+            admin_id = request.user.id,
         )
 
         # and then save to the db
-        print(new_coffer.admin.user.username)
         new_coffer.save()
 
         return redirect(reverse('cofferupApp:coffers'))
