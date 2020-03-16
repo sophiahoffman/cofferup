@@ -7,14 +7,26 @@
         <ol>
         {% for coffer in my_coffers %}
             <li>
-            <a href = {% url 'cofferupApp:coffer' coffer.id %}>
-            {{coffer.name}}</a> 
-            ({{coffer.description}})
-            <form action="{% url 'cofferupApp:my_coffers' coffer.id %}" method="POST">
-            <input type="hidden" name="actual_method" value="DELETE">
-            {% csrf_token %}
+            <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
+            {{coffer.coffer.name}}</a> 
+            ({{coffer.coffer.description}})
+            <form>
             <button type="submit">Leave Coffer</button>
             </form>
+
+            <form action="{% url 'cofferupApp:contribution_list' coffer.id %}" method='post'>
+            {% csrf_token %}
+                <fieldset>
+                    <label for="amount">Contribution Amount: </label>
+                    <input id="amount" type="number" name="amount">
+                </fieldset>
+                <fieldset>
+                    <label for="descrption">Description Amount: </label>
+                    <input id="description" type="text" name="description">
+                </fieldset>
+                <button type="submit">Make Contribution</button>
+            </form>
+
             </li>
         {% endfor %}
         </ol> 

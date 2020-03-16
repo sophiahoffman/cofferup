@@ -7,6 +7,7 @@ class ContributorCoffer(models.Model):
 
     contributor = models.ForeignKey(Contributor, on_delete=models.CASCADE)
     coffer = models.ForeignKey(Coffer, on_delete=models.CASCADE)
+    is_settled=models.BooleanField(default=0)
     # is_open=models.BooleanField(default=True)
 
     # def __str__(self):

@@ -16,7 +16,7 @@ urlpatterns = [
     path('coffers/<int:coffer_id>/', coffer_detail, name='coffer'),
     path('coffers/mysettledcoffers', my_settled_coffers_list, name = 'my_settled_coffers'),
     path('coffers/mycoffers/<int:coffer_id>', my_coffers_list, name='my_coffers'),
-    # path('books/<int:book_id>/form/', book_edit_form, name='book_edit_form')
+    path('coffers/mycoffers/contribution/<int:coffer_id>', contribution_list, name='contribution_list'),
     path('register', user_register, name='user_register'),
     path('login', login_user),
 ]

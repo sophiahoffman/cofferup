@@ -9,8 +9,7 @@ def my_settled_coffers_list(request):
         """ settled coffers are coffers that are paid by an individual.
         filters contributor coffer join so only those with contributor id matching the logged in user are returned; then uses that filter on contributor coffer transaction to get only those that are paid"""
 
-        my_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id )
-        my_paid_coffers = ContributorCofferTransaction.objects.filter(contributor_coffer_id__in=my_coffers, is_contribution=False)
+        my_paid_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=True)
 
         template = 'coffers/my_paid_list.html'
         context = {
