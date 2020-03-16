@@ -2,16 +2,18 @@
 
 {% load static %}
 
-    {% block content %}
-        <h1>My Coffers</h1>
-        <ol>
-        {% for coffer in my_coffers %}
-            <li>
-            <a href = {% url 'cofferupApp:coffer' coffer.id %}>
-            {{coffer.contributor_coffer.coffer.name}}</a> 
-            ({{coffer.contributor_coffer.coffer.description}})
-            </li>
-        {% endfor %}
-        </ol> 
-    {% endblock %}
+{% block content %}
+    <h1>My Coffers</h1>
+    <ol>
+    {% for coffer in my_coffers %}
+        <li>
+        <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
+        {{coffer.coffer.name}}</a> 
+        ({{coffer.coffer.description}})
+
+
+        </li>
+    {% endfor %}
+    </ol> 
+{% endblock %}
 
