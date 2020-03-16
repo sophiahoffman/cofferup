@@ -6,13 +6,8 @@ from django.contrib.auth.decorators import login_required
 def my_settled_coffers_list(request):
     if request.method == 'GET':
 
-        # my_coffers = ContributorCoffer.objects.all().filter(contributor_id = request.user.id)
-        # print("user id", request.user.id)
-        # my_coffers_id_list = map(lambda coffer: coffer.id, my_coffers)
-        
-        # for contributorcoffer in my_coffers:
-        #    print("contributorcoffer.id", contributorcoffer.id)
-
+        """ settled coffers are coffers that are paid by an individual.
+        filters contributor coffer join so only those with contributor id matching the logged in user are returned; then uses that filter on contributor coffer transaction to get only those that are paid"""
 
         my_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id )
         my_paid_coffers = ContributorCofferTransaction.objects.filter(contributor_coffer_id__in=my_coffers, is_contribution=False)
@@ -43,7 +38,7 @@ def my_settled_coffers_list(request):
             # instantiate...
             new_contributor_coffer = ContributorCoffer(
                 coffer_id = pk,
-                contributor_id = request.user.contributor.id,
+                contributor_id = request.user.id,
             )
 
             # and then save to the db

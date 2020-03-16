@@ -29,6 +29,8 @@ def user_detail(request):
             user = User.objects.get(pk=request.user.id)
             user.first_name = form_data["first_name"]
             user.last_name = form_data["last_name"]
+            user.username = form_data["username"]
+            user.email = form_data["email"]
             user.save()
         
         return redirect(reverse('cofferupApp:profile'))

@@ -7,7 +7,7 @@
         <ol>
         {% for coffer in my_coffers %}
             <li>
-            {% comment %} <a href = {% url 'cofferupApp:coffer' coffer.id %}> {% endcomment %}
+            <a href = {% url 'cofferupApp:coffer' coffer.id %}>
             {{coffer.contributor_coffer.coffer.name}}</a> 
             ({{coffer.contributor_coffer.coffer.description}})
             </li>
