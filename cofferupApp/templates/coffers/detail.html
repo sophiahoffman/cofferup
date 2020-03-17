@@ -3,16 +3,16 @@
 
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <charset = 'utf-8'>
-        <title>NMLS</title>
-    </head>
-    <body>
-    {% block content %}
-        <h1>{{coffer.name}}</h1>
-        <h2>{{coffer.description}}</h2>
-    {% endblock %}
-    </body>
-</html>
+
+{% block content %}
+
+    <h2>{{coffer.name}}</h2>
+    <h2>{{coffer.description}}</h2>
+    <h2>{{coffer.sum}}</h2>
+    {% for line in coffer.contributor_sums%}
+    <h2>{{line.first_name}} {{line.last_name}}     {{line.total}}</h2>
+    {% endfor %}
+
+
+
+{% endblock %}
