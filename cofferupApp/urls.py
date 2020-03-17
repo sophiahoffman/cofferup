@@ -15,6 +15,7 @@ urlpatterns = [
     path('profile/form', profile_form, name='profile_form'),
     path('coffers/<int:coffer_id>/', coffer_detail, name='coffer'),
     path('coffers/mysettledcoffers', my_settled_coffers_list, name = 'my_settled_coffers'),
+    path('coffers/mysettledcoffers/<int:coffer_id>', my_settled_coffers_list, name='my_settled_coffers'),
     path('coffers/mycoffers/<int:coffer_id>', my_coffers_list, name='my_coffers'),
     path('coffers/mycoffers/contribution/<int:coffer_id>', contribution_list, name='contribution_list'),
     path('register', user_register, name='user_register'),
