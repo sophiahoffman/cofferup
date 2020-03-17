@@ -2,6 +2,7 @@ import sqlite3
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from cofferupApp.models import Coffer, ContributorCoffer, ContributorCofferTransaction
+from ..helpers import contributor_sum, coffer_sum
 
 def get_coffer(coffer_id):
     return Coffer.objects.get(pk = coffer_id)
@@ -11,6 +12,8 @@ def coffer_detail(request, coffer_id):
     if request.method == 'GET': 
         
         coffer = get_coffer(coffer_id)
+        coffer.sum = coffer_sum(coffer_id)
+        coffer.contributor_sums = contributor_sum(coffer_id)
 
         # contributor_coffer = ContributorCoffer.objects.get(coffer_id=coffer_id)
         # contributor_coffer_transactions = ContributorCofferTransaction.objects.filter(contributor_coffer_id=contributor_coffer.id, )        

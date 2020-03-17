@@ -7,12 +7,10 @@ from django.contrib.auth.decorators import login_required
 def coffers_list(request):
     if request.method == 'GET':
 
-        # all_coffers = Coffer.objects.all()
-        all_unadded_coffers = ContributorCoffer.objects.filter(contributor_id =request.user.id) 
+        added_coffers = ContributorCoffer.objects.filter(contributor_id =request.user.id) 
         unique_unadded_coffers = []
-        for coffer in all_unadded_coffers:
+        for coffer in added_coffers:
             unique_unadded_coffers.append(coffer.coffer.id)
-            print("im adding", coffer.coffer.id)
 
         all_coffers = Coffer.objects.exclude(id__in=unique_unadded_coffers)
 
