@@ -20,7 +20,7 @@ def user_detail(request):
 
     elif request.method == 'POST':
         form_data = request.POST
-        # Check if this POST is for deleting a book
+        # Check if this POST is for updating
         if (
             "actual_method" in form_data
             and form_data["actual_method"] == "PATCH"

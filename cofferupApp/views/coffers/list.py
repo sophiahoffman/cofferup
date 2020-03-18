@@ -1,5 +1,5 @@
 import sqlite3
-from cofferupApp.models import Coffer, ContributorCoffer
+from cofferupApp.models import Coffer, ContributorCoffer, Contributor, ContributorCofferTransaction
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 
@@ -12,7 +12,24 @@ def coffers_list(request):
         for coffer in added_coffers:
             unique_unadded_coffers.append(coffer.coffer.id)
 
+
         all_coffers = Coffer.objects.exclude(id__in=unique_unadded_coffers)
+
+
+        # contributor_coffer = Coffer.objects.all()
+        # # coffers = Coffer.objects.all()
+
+        # coffers_added = contributor_coffer.contributor_set.filter(contributor_id=request.user.id)
+        # for coffer in contributor_coffer:
+        #     # for item in coffer.coffer_set:
+
+        #         print("firstname", coffer.coffer.name, coffer.contributor_set)
+
+        # contributor = ContributorCoffer
+        # contributorcoffers = Contributor.coffer_set.filter(contributor_id=request.user.id)
+
+        # coffer_kill_me = contributorcoffers.contributorcoffertransaction_set.all()
+        # print(ccontributorcoffers)
 
         template = 'coffers/list.html'
         context = {
