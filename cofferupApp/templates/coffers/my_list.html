@@ -5,7 +5,43 @@
     {% block content %}
         <h1>My Coffers</h1>
         <ol>
-        {% for coffer in my_coffers %}
+        {% for coffer in my_open_coffers %}
+            <li>
+            <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
+            {{coffer.coffer.name}}</a> 
+            ({{coffer.coffer.description}})
+            <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
+            <input type="hidden" name="actual_method" value="DELETE">
+            {% csrf_token %}
+
+            <button type="submit">Leave Coffer</button>
+            </form>
+
+            <form action="{% url 'cofferupApp:contribution_list' coffer.id %}" method='post'>
+            {% csrf_token %}
+                <fieldset>
+                    <label for="amount">Amount: </label>
+                    <input id="amount" type="number" name="amount">
+                </fieldset>
+                <fieldset>
+                    <label for="descrption">Description: </label>
+                    <input id="description" type="text" name="description">
+                </fieldset>
+                <button type="submit">Make Contribution</button>
+            </form>
+
+            <form action="{% url 'cofferupApp:my_settled_coffers' coffer.id %}" method="POST">
+            <input type="hidden" name="actual_method" value="PATCH">
+            {% csrf_token %}
+
+            <button type="submit">Settle Coffer</button>
+            </form>
+
+            </li>
+        {% endfor %}
+        </ol> 
+                <ol>
+        {% for coffer in my_closed_coffers %}
             <li>
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
             {{coffer.coffer.name}}</a> 
