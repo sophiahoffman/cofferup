@@ -1,0 +1,45 @@
+.welcome-logo {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    max-width: 300px;
+    align-items: center;
+    margin: auto;
+}
+
+.welcome-text {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: left;
+    align-content: center;
+    min-width: 100%;
+    padding-left: 25%;
+    padding-right: 25%;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Itim', cursive;
+
+}
+
+.navList {
+    list-style-type: none;
+    display: flex;
+    border: 1px solid lightgray;
+    padding: 1em;
+    margin: 0;
+}
+
+.navList__route {
+    margin: 0 1em;
+    font-family: 'Itim', cursive;
+    font-size: 18px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: aqua;
+}

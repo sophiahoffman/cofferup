@@ -1,18 +1,31 @@
+
 {% extends 'shared/base.html' %}
 
 {% load static %}
 
-<!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>Welcome to CofferUP</title>
-    </head>
-    <body>
-    {% block content %}
-        <h1>Welcome to CofferUp</h1>
-    {% endblock %}
-    </body>
-</html>
+{% block content %}
+<img class="welcome-logo" src="https://res.cloudinary.com/anymouse/image/upload/v1584581330/CofferUp/CoffErUp-logos_black_zmnxcy.png" alt="CofferUp Logo">
+<div class="welcome-text">
+    <p>Coff'ErUp is a place where you can create and maintain digital collection coffers.</p>
+    <p>There are several types of coffers:</P>
+    <ul>
+        <li> Open Coffers - Coffers that have already started and are accepting contributions/penalties
+        <li> Future Coffers - Coffers that have been created but the start date has not arrived
+        <li> Closed Coffers - Coffers whose end date has passed
+        <ul>
+            <li> Settled - Closed Coffers that have been Paid
+            <li> Unsettled - Closed Coffers that are Unpaid
+        </ul>
+    </ul>
+    <p>Multiple users can contribute to multiple coffers.</p>
+    <p>So get started and join your friends in filling the coffers.</p>
 
+
+</div>
+
+
+{% endblock %}
+
+
+2
