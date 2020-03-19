@@ -3,13 +3,15 @@
 {% load static %}
 
     {% block content %}
+    <div class="list-text">
         <h1>My Open Coffers</h1>
         <ol>
         {% for coffer in my_open_coffers %}
             <li>
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
-            {{coffer.coffer.name}}</a> will close {{coffer.coffer.date_end}}
+            <h3>{{coffer.coffer.name}}</h3></a> 
             ({{coffer.coffer.description}})
+            <p>will close {{coffer.coffer.date_end}}</p>
             <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
             <input type="hidden" name="actual_method" value="DELETE">
             {% csrf_token %}
@@ -45,8 +47,9 @@
         {% for coffer in my_future_coffers %}
             <li>
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
-            {{coffer.coffer.name}}</a> will open {{coffer.coffer.date_end}}
+            <h3>{{coffer.coffer.name}}</h3></a> 
             ({{coffer.coffer.description}})
+            <p>will close {{coffer.coffer.date_end}}</p>
             <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
             <input type="hidden" name="actual_method" value="DELETE">
             {% csrf_token %}
@@ -61,8 +64,9 @@
         {% for coffer in my_closed_coffers %}
             <li>
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
-            {{coffer.coffer.name}}</a> closed {{coffer.coffer.date_end}}
+            <h3>{{coffer.coffer.name}}</h3></a> 
             ({{coffer.coffer.description}})
+            <p>will close {{coffer.coffer.date_end}}</p>
             <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
             <input type="hidden" name="actual_method" value="DELETE">
             {% csrf_token %}
@@ -80,5 +84,6 @@
             </li>
         {% endfor %}
         </ol> 
+    </div>
     {% endblock %}
 

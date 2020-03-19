@@ -13,33 +13,83 @@
     margin: auto;
     text-align: left;
     align-content: center;
-    min-width: 100%;
-    padding-left: 25%;
-    padding-right: 25%;
+    min-width: 50%;
+    padding-left: 20%;
+    padding-right: 20%;
     font-weight: 400;
     font-size: 20px;
-    font-family: 'Itim', cursive;
+}
 
+.detail-text, .list-text {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: left;
+    align-content: center;
+    min-width: 100%;
+    padding-left: 20%;
+    padding-top: 5px;
+    padding-right: 20%;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+body {
+    font-family: 'Itim', cursive;
+    font-size: 20px;
+    color: rgb(39, 1, 1);
+    background-image: url("https://res.cloudinary.com/anymouse/image/upload/v1584642506/CofferUp/parchment5_rhcbuy.jpg");
+    background-size: 100%;
+}
+
+ul, ol {
+    list-style-type: disc;
 }
 
 .navList {
     list-style-type: none;
     display: flex;
+    flex-direction: row;
     border: 1px solid lightgray;
-    padding: 1em;
+    padding-left: 5%;
+    padding-right: 5%;
+    min-width: 100%;
+    text-align: center;
     margin: 0;
 }
 
 .navList__route {
-    margin: 0 1em;
-    font-family: 'Itim', cursive;
+    margin: 1em;
     font-size: 18px;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 a {
-    color: black;
+    color:  rgb(39, 1, 1);
 }
 
-a:hover {
-    color: aqua;
+button:hover, a:hover {
+    color: ivory;
+    text-decoration: none;
+}
+
+.create-button {
+    width: 200px;
+    align-items: center;
+    margin: auto;
+}
+
+.coffer-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-button {
+    align-self: center;
+}
+
+button {
+    background-color: rgb(214, 206, 181);
+    font-size: 20px;
 }

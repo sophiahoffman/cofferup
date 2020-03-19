@@ -2,23 +2,28 @@
 
 {% load static %}
 
-    {% block content %}
-    <a href="{% url 'cofferupApp:coffer_form' %}">Add Coffer</a>
+{% block content %}
 
-        <h1>Join A Coffer</h1>
+<div class="list-text">
+    <button class="btn create-button"><a href="{% url 'cofferupApp:coffer_form' %}">Create A Coffer</a></button>
+
+    <h1>Join A Coffer</h1>
+
         <ol>
         {% for coffer in all_coffers %}
             <li>
-            <a href = {% url 'cofferupApp:coffer' coffer.id %}>
-
-            {{coffer.name}}</a> 
-            ({{coffer.description}})
-
-            <form action="{% url 'cofferupApp:my_coffers' coffer.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Add to my Coffers</button>
-            </form>
+                <a href = {% url 'cofferupApp:coffer' coffer.id %}>
+                <h3>{{coffer.name}}</h3></a> 
+                ({{coffer.description}})
+                <p>will close {{coffer.date_end}}</p>
+                
+                <form action="{% url 'cofferupApp:my_coffers' coffer.id %}" method="post">
+                {% csrf_token %}
+                <button class="btn button-add" type="submit">Add to my Coffers</button>
+                </form>
             </li>
         {% endfor %}
         </ol> 
-    {% endblock %}
+    </div>
+</div>
+{% endblock %}

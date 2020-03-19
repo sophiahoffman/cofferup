@@ -2,15 +2,19 @@
 
 {% load static %}
 
-    {% block content %}
-        <form action="{% url 'cofferupApp:profile_form' %}" method="GET">
-            {% csrf_token %}
-            <button>Edit</button>
-        </form>
-        <h1>My Profile</h1>
+{% block content %}
+<div class="list-text">
 
-            <p>{{user.first_name}}
-            {{user.last_name}} </p>
-            <p>{{user.username}}</p>
-            <p>{{user.email}}</p>
-    {% endblock %}
+    <h1>My Profile</h1>
+        <br />
+        <p>name: <b>{{user.first_name}} {{user.last_name}}</b></p>
+        <p>username: <b>{{user.username}}</b></p>
+        <p>e-mail: <b>{{user.email}}</b></p>
+        <br />
+
+    <form action="{% url 'cofferupApp:profile_form' %}" method="GET">
+        {% csrf_token %}
+        <button>Edit</button>
+    </form>
+</div>
+{% endblock %}
