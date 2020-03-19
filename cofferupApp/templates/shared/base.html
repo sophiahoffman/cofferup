@@ -4,15 +4,19 @@
 <html>
 
     <head>
+        <link rel="icon" type="image/png" href="https://res.cloudinary.com/anymouse/image/upload/v1584581292/CofferUp/Coff_ErUp-logos_transparent_zslip8.png">
         <title>CofferUp</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'home.css' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Itim&display=swap" rel="stylesheet">
 
     </head>
 
     <body>
+    {% comment %} <img src="https://res.cloudinary.com/anymouse/image/upload/v1584581330/CofferUp/CoffErUp-logos_black_zmnxcy.png" alt="CofferUp Logo"> {% endcomment %}
         {% if user.is_authenticated %}
             <nav id ="site-nav">
                 <ul class="navList">

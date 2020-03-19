@@ -3,17 +3,19 @@
 {% load static %}
 
 {% block content %}
-    <h1>My Coffers</h1>
+<div class="list-text">
+    <h1>My Settled Coffers</h1>
     <ol>
     {% for coffer in my_coffers %}
         <li>
         <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
-        {{coffer.coffer.name}}</a> 
+        <h3>{{coffer.coffer.name}}</h3></a> 
         ({{coffer.coffer.description}})
-
+        <p>closed {{coffer.coffer.date_end}}</p>
 
         </li>
     {% endfor %}
     </ol> 
+</div>
 {% endblock %}
 

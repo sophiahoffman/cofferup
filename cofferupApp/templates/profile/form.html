@@ -3,6 +3,9 @@
 {% load static %}
 
 {% block content %}
+<div class="list-text">
+    <h1>My Profile</h1>
+    <br />
     <form action="{% url 'cofferupApp:profile'  %}" method='POST'>
     <input type="hidden" name="actual_method" value="PATCH">
     {% csrf_token %}
@@ -22,6 +25,8 @@
             <label for="email">email: </label>
             <input id="email" type="text" name="email" value={{user.email}}>
         </fieldset>
+        <br />
         <button type="submit">Submit Changes</button>
     </form>
+</div>
 {% endblock %}

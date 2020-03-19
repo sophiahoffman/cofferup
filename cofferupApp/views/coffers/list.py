@@ -2,12 +2,13 @@ import sqlite3
 from cofferupApp.models import Coffer, ContributorCoffer, Contributor, ContributorCofferTransaction
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
+from datetime import date
 
 @login_required
 def coffers_list(request):
     if request.method == 'GET':
 
-        added_coffers = ContributorCoffer.objects.filter(contributor_id =request.user.id) 
+        added_coffers = ContributorCoffer.objects.filter(contributor_id =request.user.id, coffer__date_end__gte=date.today(), coffer__date_start__lte=date.today()) 
         unique_unadded_coffers = []
         for coffer in added_coffers:
             unique_unadded_coffers.append(coffer.coffer.id)

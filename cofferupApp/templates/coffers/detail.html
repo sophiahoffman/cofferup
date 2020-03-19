@@ -6,13 +6,19 @@
 
 {% block content %}
 
-    <h2>{{coffer.name}}</h2>
-    <h2>{{coffer.description}}</h2>
-    <h2>{{coffer.sum}}</h2>
+<div class="welcome-text">
+    <h1>{{coffer.name}}</h1> 
+    <p>open date: {{coffer.date_start}}</p>
+    <p>close date: {{coffer.date_end}}</p>
+    <p>{{coffer.description}}</p>
+
+    <h2>current balance: {{coffer.sum}}</h2>
+
     {% for line in coffer.contributor_sums%}
-    <h2>{{line.first_name}} {{line.last_name}}     {{line.total}}</h2>
+    <h3>{{line.first_name}} {{line.last_name}}     {{line.total}}</h3>
     {% endfor %}
 
-
+    {% comment %} put last 10 transactions here {% endcomment %}
+</div>
 
 {% endblock %}

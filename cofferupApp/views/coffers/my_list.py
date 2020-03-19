@@ -1,16 +1,21 @@
 from cofferupApp.models import Coffer, ContributorCoffer, ContributorCofferTransaction
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
+from datetime import date
 
 @login_required
 def my_coffers_list(request, coffer_id=None):
     if request.method == 'GET':
 
-        my_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=False)
-        
+        my_open_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=False, coffer__date_end__gte=date.today(), coffer__date_start__lte=date.today())
+        my_closed_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=False, coffer__date_end__lt=date.today())
+        my_future_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=False, coffer__date_start__gt=date.today())
+
         template = 'coffers/my_list.html'
         context = {
-            'my_coffers': my_coffers
+            'my_open_coffers': my_open_coffers,
+            'my_closed_coffers': my_closed_coffers,
+            'my_future_coffers': my_future_coffers
         }
 
         return render(request, template, context)
