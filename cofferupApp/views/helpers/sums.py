@@ -27,6 +27,7 @@ def contributor_sum(coffer_id):
             total = 0
         else:
             total = cofferQuery[0]['total']
+            
         contributor_coffer = ContributorCoffer.objects.get(pk=c)
         contributor_coffer_object = {
             "first_name": contributor_coffer.contributor.user.first_name,
