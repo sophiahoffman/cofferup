@@ -32,13 +32,11 @@ def login_user(request):
         if authenticated_user is not None:
             token = Token.objects.get(user=authenticated_user)
             data = json.dumps({"valid": True, "token": token.key})
-            print("user logged in")
             return HttpResponse(data, content_type='application/json')
 
         else:
             # Bad login details were provided. So we can't log the user in.
             data = json.dumps({"valid": False})
-            print("user not logged in")
             return HttpResponse(data, content_type='application/json')
 
 

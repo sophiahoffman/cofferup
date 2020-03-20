@@ -6,21 +6,21 @@
         <form action="{% url 'cofferupApp:coffers' %}" method='post'>
         {% csrf_token %}
             <fieldset>
-                <label for="name">Coffer Name: </label>
+                <label for="name">coffer name: </label>
                 <input id="name" type="text" name="name">
             </fieldset>
             <fieldset>
-                <label for="description">Description: </label>
+                <label for="description">description: </label>
                 <input id="description" type="text" name="description">
             </fieldset>
             <fieldset>
-                <label for="date_start">Coffer Open Date: </label>
+                <label for="date_start">coffer open date: </label>
                 <input id="date_start" type="date" name="date_start">
             </fieldset>
             <fieldset>
-                <label for="date_end">Coffer Close Date: </label>
+                <label for="date_end">coffer close date: </label>
                 <input id="date_end" type="date" name="date_end">
             </fieldset>
-            <button type="submit">Add It</button>
+            <button type="submit">+ new coffer</button>
         </form>
     {% endblock %}

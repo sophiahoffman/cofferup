@@ -7,9 +7,10 @@ from datetime import date
 def my_coffers_list(request, coffer_id=None):
     if request.method == 'GET':
 
-        my_open_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=False, coffer__date_end__gte=date.today(), coffer__date_start__lte=date.today())
-        my_closed_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=False, coffer__date_end__lt=date.today())
-        my_future_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=False, coffer__date_start__gt=date.today())
+        my_coffers = ContributorCoffer.objects.filter(contributor_id=request.user.id, is_settled=False)
+        my_open_coffers = my_coffers.filter(coffer__date_end__gte=date.today(), coffer__date_start__lte=date.today())
+        my_closed_coffers = my_coffers.filter(coffer__date_end__lt=date.today())
+        my_future_coffers = my_coffers.filter(coffer__date_start__gt=date.today())
 
         template = 'coffers/my_list.html'
         context = {
