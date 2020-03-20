@@ -4,7 +4,7 @@
 
     {% block content %}
     <div class="list-text">
-        <h1>My Open Coffers</h1>
+        <h1>my open coffers</h1>
         <ol>
         {% for coffer in my_open_coffers %}
             <li>
@@ -16,33 +16,26 @@
             <input type="hidden" name="actual_method" value="DELETE">
             {% csrf_token %}
 
-            <button type="submit">Leave Coffer</button>
+            <button class="btn" type="submit">- my coffers</button>
             </form>
 
             <form action="{% url 'cofferupApp:contribution_list' coffer.id %}" method='post'>
             {% csrf_token %}
                 <fieldset>
-                    <label for="amount">Amount: </label>
+                    <label for="amount">amount: </label>
                     <input id="amount" type="number" name="amount">
                 </fieldset>
                 <fieldset>
-                    <label for="descrption">Description: </label>
+                    <label for="descrption">description: </label>
                     <input id="description" type="text" name="description">
                 </fieldset>
-                <button type="submit">Make Contribution</button>
-            </form>
-
-            <form action="{% url 'cofferupApp:my_settled_coffers' coffer.id %}" method="POST">
-            <input type="hidden" name="actual_method" value="PATCH">
-            {% csrf_token %}
-
-            <button type="submit">Settle Coffer</button>
+                <button class="btn" type="submit">+ contribution</button>
             </form>
 
             </li>
         {% endfor %}
         </ol> 
-                <h1>My Future Coffers</h1>        
+                <h1>my future coffers</h1>        
                 <ol>
         {% for coffer in my_future_coffers %}
             <li>
@@ -54,12 +47,12 @@
             <input type="hidden" name="actual_method" value="DELETE">
             {% csrf_token %}
 
-            <button type="submit">Leave Coffer</button>
+            <button class="btn" type="submit">- my coffers</button>
             </form>
             </li>
         {% endfor %}
         </ol> 
-        <h1>My Closed Coffers</h1>        
+        <h1>my closed coffers</h1>        
                 <ol>
         {% for coffer in my_closed_coffers %}
             <li>
@@ -71,14 +64,14 @@
             <input type="hidden" name="actual_method" value="DELETE">
             {% csrf_token %}
 
-            <button type="submit">Leave Coffer</button>
+            <button class="btn" type="submit">- my coffers</button>
             </form>
 
             <form action="{% url 'cofferupApp:my_settled_coffers' coffer.id %}" method="POST">
             <input type="hidden" name="actual_method" value="PATCH">
             {% csrf_token %}
 
-            <button type="submit">Settle Coffer</button>
+            <button class="btn" type="submit">$ coffer</button>
             </form>
 
             </li>

@@ -20,21 +20,21 @@
         {% if user.is_authenticated %}
             <nav id ="site-nav">
                 <ul class="navList">
-                    <li class="navList__route"><a href="{% url 'cofferupApp:home' %}">Home</a></li>
-                    <li class="navList__route"><a href="{% url 'cofferupApp:my_coffers' %}">My Coffers</a></li>
-                    <li class="navList__route"><a href="{% url 'cofferupApp:coffers'%}">Join A Coffer</a></li>
-                    <li class="navList__route"><a href="{% url 'cofferupApp:my_settled_coffers'%}">Settled Coffers</a></li>
-                    <li class="navList__route"><a href="{% url 'cofferupApp:profile'%}">My Profile</a></li>
-                    <li class="navList__route"><a href="{% url 'cofferupApp:logout'%}">Logout</a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:home' %}"><img class="nav-bar-logo" src="https://res.cloudinary.com/anymouse/image/upload/v1584581286/CofferUp/Coff_ErUp-logos_black_esz9zx.png" alt="home"></a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:my_coffers' %}">my coffers</a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:coffers'%}">join a coffer</a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:my_settled_coffers'%}">settled coffers</a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:profile'%}">my profile</a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:logout'%}">logout</a></li>
                 </ul>
             </nav>
         
         {% else %}
             <nav id ="site-nav">
                 <ul class="navList">
-                    <li class="navList__route"><a href="{% url 'cofferupApp:home' %}">Home</a></li>
-                    <li class="navList__route"><a href="{% url 'cofferupApp:login'%}">Login</a></li>
-                    <li class="navList__route"><a href="{% url 'cofferupApp:user_register'%}">Register</a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:home' %}"><img class="nav-bar-logo" src="https://res.cloudinary.com/anymouse/image/upload/v1584581330/CofferUp/CoffErUp-logos_black_zmnxcy.png" alt="home"></a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:login'%}">login</a></li>
+                    <li class="navList__route"><a href="{% url 'cofferupApp:user_register'%}">register</a></li>
                 </ul>
             </nav>
         

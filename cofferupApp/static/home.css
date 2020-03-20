@@ -38,8 +38,13 @@ body {
     font-family: 'Itim', cursive;
     font-size: 20px;
     color: rgb(39, 1, 1);
-    background-image: url("https://res.cloudinary.com/anymouse/image/upload/v1584642506/CofferUp/parchment5_rhcbuy.jpg");
+    /* background-image: url("https://res.cloudinary.com/anymouse/image/upload/v1584642506/CofferUp/parchment5_rhcbuy.jpg"); */
+    background-color: rgb(228, 216, 201);
     background-size: 100%;
+}
+
+.panel, .panel-heading {
+    background-color: rgb(228, 216, 201);
 }
 
 ul, ol {
@@ -55,6 +60,7 @@ ul, ol {
     padding-right: 5%;
     min-width: 100%;
     text-align: center;
+    vertical-align: middle;
     margin: 0;
 }
 
@@ -63,7 +69,10 @@ ul, ol {
     font-size: 18px;
     padding-left: 2em;
     padding-right: 2em;
+    height: 75px;
+    vertical-align: middle;
 }
+
 
 a {
     color:  rgb(39, 1, 1);
@@ -90,6 +99,11 @@ button:hover, a:hover {
 }
 
 button {
-    background-color: rgb(214, 206, 181);
+    background-color: rgb(243, 235, 226);
     font-size: 20px;
+}
+
+.nav-bar-logo {
+    width: 75px;
+    height: 75px;
 }
