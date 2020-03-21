@@ -3,10 +3,10 @@ Coff'ErUp is a Django web application that allows users to create and maintain d
   
 There are several categories of coffers:
 * Open Coffers - Coffers that have already started and are accepting contributions/penalties
-  * Future Coffers - Coffers that have been created but the start date has not arrived
-  * Closed Coffers - Coffers whose end date has passed
-    * Settled - Closed Coffers that have been Paid
-    * Unsettled - Closed Coffers that are Unpaid  
+* Future Coffers - Coffers that have been created but the start date has not arrived
+* Closed Coffers - Coffers whose end date has passed
+  * Settled - Closed Coffers that have been Paid
+  * Unsettled - Closed Coffers that are Unpaid  
   
 Users can join as many coffers as they like.  
 So get started and join your friends in filling the coffers!  
