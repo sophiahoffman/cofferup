@@ -41,6 +41,6 @@ So get started and join your friends in filling the coffers!
 
 ## ERD
 
-![cofferUp ERD](./cofferUpApp/assets/cofferUpERD.png)
+![cofferUp ERD](./cofferupApp/assets/cofferUpERD.png)
 
 Not that the column names do not conform to the Python community standards (PEP) for naming conventions. Make sure your models use snake case.
