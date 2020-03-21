@@ -43,4 +43,3 @@ So get started and join your friends in filling the coffers!
 
 ![cofferUp ERD](./cofferupApp/assets/cofferUpERD.PNG)
 
-Not that the column names do not conform to the Python community standards (PEP) for naming conventions. Make sure your models use snake case.
