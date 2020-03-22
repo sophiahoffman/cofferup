@@ -20,7 +20,7 @@
         {% if user.is_authenticated %}
             <nav id ="site-nav">
                 <ul class="navList">
-                    <li class="navList__route"><a href="{% url 'cofferupApp:home' %}"><img class="nav-bar-logo" src="https://res.cloudinary.com/anymouse/image/upload/v1584581286/CofferUp/Coff_ErUp-logos_black_esz9zx.png" alt="home"></a></li>
+                    <li class="navList__route nav-non-logo"><a href="{% url 'cofferupApp:home' %}"><img class="nav-bar-logo" src="https://res.cloudinary.com/anymouse/image/upload/v1584581286/CofferUp/Coff_ErUp-logos_black_esz9zx.png" alt="home"></a></li>
                     <li class="navList__route"><a href="{% url 'cofferupApp:my_coffers' %}">my coffers</a></li>
                     <li class="navList__route"><a href="{% url 'cofferupApp:coffers'%}">join a coffer</a></li>
                     <li class="navList__route"><a href="{% url 'cofferupApp:my_settled_coffers'%}">settled coffers</a></li>

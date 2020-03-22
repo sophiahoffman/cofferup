@@ -8,7 +8,7 @@ from datetime import date
 def coffers_list(request):
     if request.method == 'GET':
 
-        added_coffers = ContributorCoffer.objects.filter(contributor_id =request.user.id, coffer__date_end__gte=date.today(), coffer__date_start__lte=date.today()) 
+        added_coffers = ContributorCoffer.objects.filter(contributor_id =request.user.id) 
         unique_unadded_coffers = []
         for coffer in added_coffers:
             unique_unadded_coffers.append(coffer.coffer.id)
