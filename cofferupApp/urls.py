@@ -5,8 +5,9 @@ from .models import *
 app_name = "cofferupApp"
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('coffers/mycoffers/', my_coffers_list, name = 'my_coffers'),
+    path('home', contribution_list, name='home'),
+    path('', about, name='about'),
+    path('coffers/mycoffers/', my_coffers_list, name='my_coffers'),
     path('coffers', coffers_list, name = 'coffers'),
     path('profile', user_detail, name='profile'),
     path('accounts/', include('django.contrib.auth.urls')),

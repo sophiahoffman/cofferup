@@ -14,8 +14,27 @@
 
     <h2>balance: {{coffer.sum}}</h2>
 
-    {% for line in coffer.contributor_sums%}
-    <h3>{{line.first_name}} {{line.last_name}}     {{line.total}}</h3>
+    {% for line in coffer.contributor_sums %}
+    <h3 class="xact-detail-description">{{line.first_name}} {{line.last_name}}     {{line.total}}</h3>
+    {% endfor %}
+
+    <div>
+    <h2>all transactions</h2>
+    {% for line in coffer.contributions %}
+        <div class="flexRow">
+            <p class="xact-detail-date">
+                {{line.transaction_date}}
+            </p>
+            <p class="xact-detail-name">
+                {{line.contributor_coffer.contributor.user.first_name}} {{line.contributor_coffer.contributor.user.last_name}} 
+            </p>
+            <p class="xact-detail-amount">
+                {{line.amount}}
+            </p>
+            <p class="xact-detail-description">
+                {{line.description}}
+            </p>
+        </div>
     {% endfor %}
 
     {% comment %} put last 10 transactions here {% endcomment %}

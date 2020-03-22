@@ -26,8 +26,8 @@
             <form action="{% url 'cofferupApp:contribution_list' coffer.id %}" method='post'>
             {% csrf_token %}
                 <fieldset>
-                    <label for="amount">amount: </label>
-                    <input id="amount" type="number" name="amount">
+                    <label for="amount">amount (cents): </label>
+                    <input id="amount" type="number" step="25" name="amount">
                 </fieldset>
                 <fieldset>
                     <label for="description">description: </label>
@@ -35,6 +35,11 @@
                 </fieldset>
                 <button class="btn" type="submit">+ contribution</button>
             </form>
+        <script>
+                alert(message)
+        </script>
+
+
                 </div>
             </div>
 

@@ -4,13 +4,25 @@
 
 
 {% block content %}
-<div class="list-text">
+<div class="container form-text">
     <h2>login</h2>
-    <br />
     <form method = "post">
         {%csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">username:</label>
+            <div>
+                {{ form.username }}
+            </div>
+        </div>  
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">password:</label>
+            <div>
+                {{ form.password }}
+            </div>
+        </div>
+        <div>
         <button class="btn" type = "submit">login</button>
+        </div>
     </form>
     <br />
 </div>

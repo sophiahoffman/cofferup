@@ -4,23 +4,17 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def contribution_list(request, coffer_id = None):
-    # if request.method == 'GET':
+    if request.method == 'GET':
 
-    #     # all_coffers = Coffer.objects.all()
-    #     all_unadded_coffers = ContributorCoffer.objects.filter(contributor_id =request.user.id) 
-    #     unique_unadded_coffers = []
-    #     for coffer in all_unadded_coffers:
-    #         unique_unadded_coffers.append(coffer.coffer.id)
-    #         print("im adding", coffer.coffer.id)
+        # all_coffers = Coffer.objects.all()
+        my_contribs = ContributorCofferTransaction.objects.filter(contributor_coffer__contributor_id =request.user.id).order_by('-transaction_date')[:10]
 
-    #     all_coffers = Coffer.objects.exclude(id__in=unique_unadded_coffers)
+        template = 'home.html'
+        context = {
+            'my_contribs': my_contribs
+        }
 
-    #     template = 'coffers/list.html'
-    #     context = {
-    #         'all_coffers': all_coffers
-    #     }
-
-    #     return render(request, template, context)
+        return render(request, template, context)
 
     # elif request.method == 'POST':
         # not sure where the best place to put this delete is... yet
