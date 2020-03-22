@@ -3,24 +3,29 @@
 {% load static %}
 
     {% block content %}
+    <div class="form-text">
+    <h2>new coffer details</h2>
+    <br />
         <form action="{% url 'cofferupApp:coffers' %}" method='post'>
         {% csrf_token %}
-            <fieldset>
+            <fieldset class="form-group">
                 <label for="name">coffer name: </label>
-                <input id="name" type="text" name="name">
+                <input class="form-control" id="name" type="text" name="name">
             </fieldset>
-            <fieldset>
+            <fieldset class="form-group">
                 <label for="description">description: </label>
-                <input id="description" type="text" name="description">
+                <input class="form-control" id="description" type="text" name="description">
             </fieldset>
-            <fieldset>
+            <fieldset class="form-group">
                 <label for="date_start">coffer open date: </label>
-                <input id="date_start" type="date" name="date_start">
+                <input class="form-control" id="date_start" type="date" name="date_start">
             </fieldset>
-            <fieldset>
+            <fieldset class="form-group">
                 <label for="date_end">coffer close date: </label>
-                <input id="date_end" type="date" name="date_end">
+                <input class="form-control" id="date_end" type="date" name="date_end">
             </fieldset>
-            <button type="submit">+ new coffer</button>
+            <br />
+            <button class="btn button-add" type="submit">+ new coffer</button>
         </form>
+        </div>
     {% endblock %}

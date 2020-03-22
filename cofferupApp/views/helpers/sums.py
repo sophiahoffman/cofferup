@@ -3,7 +3,21 @@ from cofferupApp.models import ContributorCofferTransaction, ContributorCoffer
 
 
 def contributor_sum(coffer_id):
-    """ contributor_sum generates a list of user first name, user last name and the total they have contributed to a specific coffer. list gets added to the coffer object later """
+    """ contributor_sum generates a list of user first name, user last name and the total they have contributed to a specific coffer. list gets added to the coffer object later 
+    accomplishes left join and an equivalent to the following SQL query:
+    select t1.first_name, t1.last_name, t1.contributor_coffer, t1.contributor_id, t1.coffer_id, t2.total
+    from
+    (select au.first_name as first_name, au.last_name as last_name, cc.id as contributor_coffer, cc.contributor_id as contributor_id, cc.coffer_id as coffer_id
+    from auth_user au
+    join cofferupApp_contributorcoffer cc
+    on au.id = cc.contributor_id) as t1
+    left join
+    (select cct.contributor_coffer_id as contributor_coffer, sum(amount) as total
+    from cofferupApp_contributorcoffertransaction cct
+    group by cct.contributor_coffer_id) as t2
+    on t1.contributor_coffer = t2.contributor_coffer
+    order by coffer_id, total DESC; 
+    """
     # generates the list of ContributorCoffer objects based on the coffer_id from contributors function above
     contributors = ContributorCoffer.objects.filter(coffer_id = coffer_id)
 

@@ -3,27 +3,27 @@
 {% load static %}
 
 {% block content %}
-<div class="list-text">
+<div class="form-text">
     <h1>my profile</h1>
     <br />
     <form action="{% url 'cofferupApp:profile'  %}" method='POST'>
     <input type="hidden" name="actual_method" value="PATCH">
     {% csrf_token %}
-        <fieldset>
+        <fieldset class="form-group">
             <label for="first_name">first name: </label>
-            <input id="first_name" type="text" name="first_name" value={{user.first_name}}>
+            <input class="form-control" id="first_name" type="text" name="first_name" value={{user.first_name}}>
         </fieldset>
-        <fieldset>
+        <fieldset class="form-group">
             <label for="last_name">last name: </label>
-            <input id="last_name" type="text" name="last_name" value={{user.last_name}}>
+            <input class="form-control" id="last_name" type="text" name="last_name" value={{user.last_name}}>
         </fieldset>
-        <fieldset>
+        <fieldset class="form-group">
             <label for="username">username: </label>
-            <input id="username" type="text" name="username" value={{user.username}}>
+            <input class="form-control"  id="username" type="text" name="username" value={{user.username}}>
         </fieldset>
-        <fieldset>
+        <fieldset class="form-group">
             <label for="email">email: </label>
-            <input id="email" type="text" name="email" value={{user.email}}>
+            <input class="form-control" id="email" type="text" name="email" value={{user.email}}>
         </fieldset>
         <br />
         <button class="btn" type="submit">Submit Changes</button>

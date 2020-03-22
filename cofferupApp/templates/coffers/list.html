@@ -5,15 +5,15 @@
 {% block content %}
 
 <div class="list-text">
-    <button class="btn create-button"><a href="{% url 'cofferupApp:coffer_form' %}">create new coffer</a></button>
+    <button class="btn btn-lg create-button"><a href="{% url 'cofferupApp:coffer_form' %}">create new coffer</a></button>
 
     <h1>join a coffer</h1>
 
-        <ol>
+        <div class="flexCol">
         {% for coffer in all_coffers %}
-            <li>
+            <div>
                 <a href = {% url 'cofferupApp:coffer' coffer.id %}>
-                <h3>{{coffer.name}}</h3></a> 
+                <span class="div-name"><h3>{{coffer.name}}</h3></span></a> 
                 ({{coffer.description}})
                 <p>will close {{coffer.date_end}}</p>
                 
@@ -21,9 +21,8 @@
                 {% csrf_token %}
                 <button class="btn button-add" type="submit">+ my coffers</button>
                 </form>
-            </li>
+            </div>
         {% endfor %}
-        </ol> 
     </div>
 </div>
 {% endblock %}
