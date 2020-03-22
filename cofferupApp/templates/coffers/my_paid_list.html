@@ -5,17 +5,17 @@
 {% block content %}
 <div class="list-text">
     <h1>my settled coffers</h1>
-    <ol>
+    <div>
     {% for coffer in my_coffers %}
-        <li>
+        <div>
         <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
-        <h3>{{coffer.coffer.name}}</h3></a> 
+        <span class="div-name"><h3>{{coffer.coffer.name}}</h3></span></a> 
         ({{coffer.coffer.description}})
         <p>closed {{coffer.coffer.date_end}}</p>
 
-        </li>
+        </div>
     {% endfor %}
-    </ol> 
+    </div> 
 </div>
 {% endblock %}
 

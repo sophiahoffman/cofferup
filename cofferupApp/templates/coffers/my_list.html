@@ -6,7 +6,7 @@
     <div class="list-text">
         <h1>my open coffers</h1>
 
-                <div class="flexCol">
+        <div class="flexCol">
         {% for coffer in my_open_coffers %}
 
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
@@ -40,10 +40,11 @@
 
         {% endfor %}
         </div> 
+
         <h1>my future coffers</h1>        
-        <div >
+        <div class="flexCol">
         {% for coffer in my_future_coffers %}
-            <div class="flexCol">
+            <div>
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
            <span class="div-name"><h3>{{coffer.coffer.name}}</h3></span></a> 
             ({{coffer.coffer.description}})
@@ -57,10 +58,11 @@
             </div>
         {% endfor %}
         </div> 
+
         <h1>my closed coffers</h1>        
-        <div>
+        <div class-"flexCol">
         {% for coffer in my_closed_coffers %}
-            <div  class="flexCol">
+            <div>
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
            <span class="div-name"><h3>{{coffer.coffer.name}}</h3></span></a> 
             ({{coffer.coffer.description}})
