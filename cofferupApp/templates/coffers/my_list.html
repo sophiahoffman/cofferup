@@ -5,20 +5,24 @@
     {% block content %}
     <div class="list-text">
         <h1>my open coffers</h1>
-        <ol>
+
+                <div class="flexCol">
         {% for coffer in my_open_coffers %}
-            <li>
+
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
-            <h3>{{coffer.coffer.name}}</h3></a> 
-            ({{coffer.coffer.description}})
-            <p>will close {{coffer.coffer.date_end}}</p>
-            <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
-            <input type="hidden" name="actual_method" value="DELETE">
-            {% csrf_token %}
+            <span class="div-name"><h3>{{coffer.coffer.name}}</h3></span></a> 
+            <div class="flexRow">
+                <div class="inner-div">   
+                    ({{coffer.coffer.description}})
+                    <p>will close {{coffer.coffer.date_end}}</p>
+                    <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
+                    <input type="hidden" name="actual_method" value="DELETE">
+                    {% csrf_token %}
 
-            <button class="btn" type="submit">- my coffers</button>
-            </form>
-
+                    <button class="btn" type="submit">- my coffers</button>
+                    </form>
+                </div>
+                <div class="inner-div-2">
             <form action="{% url 'cofferupApp:contribution_list' coffer.id %}" method='post'>
             {% csrf_token %}
                 <fieldset>
@@ -26,21 +30,22 @@
                     <input id="amount" type="number" name="amount">
                 </fieldset>
                 <fieldset>
-                    <label for="descrption">description: </label>
+                    <label for="description">description: </label>
                     <input id="description" type="text" name="description">
                 </fieldset>
                 <button class="btn" type="submit">+ contribution</button>
             </form>
+                </div>
+            </div>
 
-            </li>
         {% endfor %}
-        </ol> 
-                <h1>my future coffers</h1>        
-                <ol>
+        </div> 
+        <h1>my future coffers</h1>        
+        <div >
         {% for coffer in my_future_coffers %}
-            <li>
+            <div class="flexCol">
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
-            <h3>{{coffer.coffer.name}}</h3></a> 
+           <span class="div-name"><h3>{{coffer.coffer.name}}</h3></span></a> 
             ({{coffer.coffer.description}})
             <p>will close {{coffer.coffer.date_end}}</p>
             <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
@@ -49,23 +54,24 @@
 
             <button class="btn" type="submit">- my coffers</button>
             </form>
-            </li>
+            </div>
         {% endfor %}
-        </ol> 
+        </div> 
         <h1>my closed coffers</h1>        
-                <ol>
+        <div>
         {% for coffer in my_closed_coffers %}
-            <li>
+            <div  class="flexCol">
             <a href = {% url 'cofferupApp:coffer' coffer.coffer.id %}>
-            <h3>{{coffer.coffer.name}}</h3></a> 
+           <span class="div-name"><h3>{{coffer.coffer.name}}</h3></span></a> 
             ({{coffer.coffer.description}})
             <p>will close {{coffer.coffer.date_end}}</p>
-            <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
+            
+            {% comment %} <form action="{% url 'cofferupApp:my_coffers' coffer.coffer.id %}" method="POST">
             <input type="hidden" name="actual_method" value="DELETE">
             {% csrf_token %}
 
             <button class="btn" type="submit">- my coffers</button>
-            </form>
+            </form> {% endcomment %}
 
             <form action="{% url 'cofferupApp:my_settled_coffers' coffer.id %}" method="POST">
             <input type="hidden" name="actual_method" value="PATCH">
@@ -74,9 +80,9 @@
             <button class="btn" type="submit">$ coffer</button>
             </form>
 
-            </li>
+            </div>
         {% endfor %}
-        </ol> 
+        </div>
     </div>
     {% endblock %}
 

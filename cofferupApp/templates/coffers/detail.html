@@ -12,7 +12,7 @@
     <p>close date: {{coffer.date_end}}</p>
     <p>{{coffer.description}}</p>
 
-    <h2>current balance: {{coffer.sum}}</h2>
+    <h2>balance: {{coffer.sum}}</h2>
 
     {% for line in coffer.contributor_sums%}
     <h3>{{line.first_name}} {{line.last_name}}     {{line.total}}</h3>
