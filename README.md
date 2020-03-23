@@ -1,5 +1,5 @@
 # Coff'ErUp
-![cofferUp logo](./cofferupApp/assets/logo2/CoffErUp-logos_black_resize.png)
+![cofferUp logo](./cofferupApp/assets/logo2/CoffErUp-logos_black_resize.png)  
 CoffErUp-logos_black
 Coff'ErUp is a Django web application that allows users to create and maintain digital collection coffers (swear jars, coffee messes, etc). Users can choose to join a coffer and the coffer collectively records contributions from users.  
   
