@@ -19,8 +19,8 @@ So get started and join your friends in filling the coffers!
 
 * Create your OSX virtual environment in Terminal:
 
-  * `python -m venv CapstoneEnv`
-  * `source ./CapstoneEnv/bin/activate`
+  * `python -m venv cofferupEnv`
+  * `source ./cofferupEnv/bin/activate`
 
 * Or create your Windows virtual environment in Command Line:
 
