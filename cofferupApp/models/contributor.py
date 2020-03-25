@@ -3,10 +3,12 @@ from django.db.models import F
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+# from cloudinary.models import CloudinaryField
 
 class Contributor(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image_url = models.URLField(default="", max_length=200)
 
     # def __str__(self):
     #     return f'{self.user.first_name} {self.user.last_name}'

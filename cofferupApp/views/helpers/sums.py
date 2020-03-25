@@ -33,6 +33,7 @@ def contributor_sum(coffer_id):
             total = cofferQuery[0]['total']
 
         contributor_coffer_object = {
+            "image_url": c.contributor.image_url,
             "first_name": c.contributor.user.first_name,
             "last_name": c.contributor.user.last_name,
             "total": total/100

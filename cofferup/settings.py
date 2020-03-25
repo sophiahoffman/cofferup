@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,7 +43,15 @@ INSTALLED_APPS = [
     # 'corsheaders',
     'safedelete',
     'cofferupApp',
+    'cloudinary',  #add app
 ]
+# #add config 
+# cloudinary.config(
+# #   cloud_name = os.getenv('CLOUD_NAME'),
+# #   api_key = os.getenv('API_KEY'),
+# #   api_secret = os.getenv('API_SECRET'),
+#   secure = True
+# )
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

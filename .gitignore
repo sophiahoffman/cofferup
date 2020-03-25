@@ -4,4 +4,6 @@ __pycache__/
 cofferupEnv/
 db.sqlite3
 connection.py
+variables.py
+.env
 
