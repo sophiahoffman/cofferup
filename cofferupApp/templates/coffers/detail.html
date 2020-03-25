@@ -15,13 +15,16 @@
     <h2>balance: {{coffer.sum}}</h2>
 
     {% for line in coffer.contributor_sums %}
-    <h3 class="xact-detail-description">{{line.first_name}} {{line.last_name}}     {{line.total}}</h3>
+    <h3><span id="transaction-image"><img src="{{line.image_url}}" id="transaction-image" alt="me"></span> {{line.first_name}} {{line.last_name}}     {{line.total}}</h3>
     {% endfor %}
 
     <div>
     <h2>all transactions</h2>
     {% for line in coffer.contributions %}
         <div class="flexRow">
+            <p class="xact-detail-image">
+                <img src="{{line.contributor_coffer.contributor.image_url}}" id="transaction-image" alt="me">
+            </p>
             <p class="xact-detail-date">
                 {{line.transaction_date}}
             </p>

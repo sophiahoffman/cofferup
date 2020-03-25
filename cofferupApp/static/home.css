@@ -205,3 +205,15 @@ input#amount {
 p {
     margin-left: 15px;
 }
+
+#profile-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+#transaction-image {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}

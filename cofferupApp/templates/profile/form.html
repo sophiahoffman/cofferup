@@ -6,9 +6,20 @@
 <div class="form-text">
     <h1>my profile</h1>
     <br />
-    <form action="{% url 'cofferupApp:profile'  %}" method='POST'>
+    {% comment %} <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.avatar }}
+        <input type="submit" value="Upload avatar">
+    </form> {% endcomment %}
+
+    <form action="{% url 'cofferupApp:profile'  %}" method='POST' >
     <input type="hidden" name="actual_method" value="PATCH">
     {% csrf_token %}
+
+        <fieldset class="form-group">
+            <label for="image_url">image url: </label>
+            <input class="form-control" id="image_url" type="url" name="image_url" value="{{contributor.image_url}}"}>
+        </fieldset>
         <fieldset class="form-group">
             <label for="first_name">first name: </label>
             <input class="form-control" id="first_name" type="text" name="first_name" value={{user.first_name}}>
